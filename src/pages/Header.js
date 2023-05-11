@@ -29,7 +29,7 @@ function Header() {
       <Box color="primary">
         <AppBar>
           <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography color="secondary">Den</Typography>
+            <Typography color="secondary" variant="h4">Den</Typography>
             <TextField
               sx={{backgroundColor: 'white', width: '45%'}}
               placeholder="search for posts, devs..."

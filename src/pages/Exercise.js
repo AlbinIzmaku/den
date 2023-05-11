@@ -1,9 +1,12 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
+import Header from './Header'
 
 function Exercise() {
   return (
-    <div>Albin Izmaku</div>
+    <>
+      <h1>Albin Izmaku</h1>
+    </>
   )
 }
 

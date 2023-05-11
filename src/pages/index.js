@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import styles from '@/styles/Index.module.css'
 import Header from './Header'
 import Exercise from './Exercise'
 
