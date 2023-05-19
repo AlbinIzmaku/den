@@ -18,7 +18,7 @@ const theme = createTheme({
       main: "#9747ff",
     },
     secondary: {
-      main: "#000",
+      main: "#fff",
     },
   },
 });
@@ -26,12 +26,17 @@ const theme = createTheme({
 function Header() {
   return (
     <ThemeProvider theme={theme}>
-      <Box color="primary">
+      <Box color="primary" height="20vh">
         <AppBar>
-          <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography color="secondary" variant="h4">Den</Typography>
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Avatar />
+              <Typography color="secondary" variant="h4">
+                Den
+              </Typography>
+            </Box>
             <TextField
-              sx={{backgroundColor: 'white', width: '45%'}}
+              sx={{ backgroundColor: "white", width: "45%" }}
               placeholder="search for posts, devs..."
               InputProps={{
                 startAdornment: (
@@ -41,7 +46,10 @@ function Header() {
                 ),
               }}
             />
-            <Avatar sx={{ bgcolor: 'white', width: 40, height: 40}}></Avatar>
+            <Avatar
+              sx={{ bgcolor: "white", width: 40, height: 40 }}
+              src="/avatar2.png"
+            />
           </Toolbar>
         </AppBar>
       </Box>

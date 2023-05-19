@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from './Header'
 import Exercise from './Exercise'
+import Section from './section'
 
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <Exercise />
+        <Section />
       </main>
     </>
   )
