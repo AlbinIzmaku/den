@@ -26,7 +26,7 @@ const theme = createTheme({
 function Header() {
   return (
     <ThemeProvider theme={theme}>
-      <Box color="primary" height="20vh">
+      <Box color="primary" height="10vh">
         <AppBar>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -47,7 +47,16 @@ function Header() {
               }}
             />
             <Avatar
-              sx={{ bgcolor: "white", width: 40, height: 40 }}
+              sx={{
+                bgcolor: "white",
+                width: 40,
+                height: 40,
+                overflow: "visible",
+                "& img": {
+                  width: 35,
+                  height: 35,
+                },
+              }}
               src="/avatar2.png"
             />
           </Toolbar>
