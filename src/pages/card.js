@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Box,
   Card,
   CardContent,
   CardHeader,
@@ -8,7 +7,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function SectionF({ componentColor, avatarColor, borderColor }) {
+function MyCard({ componentColor, avatarColor, borderColor }) {
   return (
     <Card
       sx={{
@@ -68,4 +67,4 @@ function SectionF({ componentColor, avatarColor, borderColor }) {
   );
 }
 
-export default SectionF;
+export default MyCard;

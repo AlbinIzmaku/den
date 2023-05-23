@@ -25,37 +25,8 @@ const theme = createTheme({
   },
 });
 
-function MySvgIcon(props) {
-  return (
-    <SvgIcon {...props} viewBox="0 0 80 72">
-      <svg
-        width="80"
-        height="72"
-        viewBox="0 0 80 72"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M35.9862 1.54024C38.268 -0.513409 41.732 -0.513414 44.0138 1.54023L78.0138 31.5402C80.6621 33.9237 80.6621 38.0763 78.0138 40.4598L44.0138 70.4598C41.732 72.5134 38.268 72.5134 35.9862 70.4598L1.98621 40.4598C-0.662068 38.0763 -0.662073 33.9237 1.98621 31.5402L35.9862 1.54024Z"
-          fill="#FFE8A3"
-        />
-        <path
-          d="M30 27H48"
-          stroke="#1E1E1E"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          d="M27 52H53"
-          stroke="#1E1E1E"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </SvgIcon>
-  );
+function MySvgIcon() {
+  return <Image src="logo.svg" alt="logo" width={30} height={30} />;
 }
 
 function Header() {
