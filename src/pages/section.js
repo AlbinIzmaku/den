@@ -4,8 +4,17 @@ import SectionF from "./sectionF";
 
 function Section() {
   return (
-    <Box sx={{ p: "20px", border: "1px solid black"}}>
-      <SectionF />
+    <Box>
+      <SectionF
+        componentColor="#ececec"
+        avatarColor="#fff"
+        borderColor="#ccc"
+      />
+      <SectionF
+        componentColor="#f4ccc9"
+        avatarColor="#fff"
+        borderColor="#cc9f9b"
+      />
     </Box>
   );
 }

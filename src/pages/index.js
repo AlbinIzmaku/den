@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Header from './Header'
-import Exercise from './Exercise'
-import Section from './section'
-
+import Head from "next/head";
+import Header from "./Header";
+import Exercise from "./Exercise";
+import Section from "./section";
+import Katrori from "./katrori";
+import KatroriN from "./katrori2";
 
 export default function Home() {
   return (
@@ -13,11 +14,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main style={{ backgroundColor: "#d9d9d9"}}>
+        <Katrori />
+        <KatroriN />
         <Header />
         <Section />
       </main>
     </>
-  )
+  );
 }
-
