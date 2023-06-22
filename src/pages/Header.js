@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import Image from "next/image";
+import InputField from "./inputField";
+
 
 const theme = createTheme({
   palette: {
@@ -46,18 +48,7 @@ function Header() {
               <MySvgIcon />
               <Typography variant="h5">Den</Typography>
             </Box>
-            <TextField
-              sx={{ width: "45%" }}
-              placeholder="search for posts, devs..."
-              InputProps={{
-                style: { background: "white" },
-                startAdornment: (
-                  <IconButton>
-                    <Search />
-                  </IconButton>
-                ),
-              }}
-            />
+            <InputField />
             <Avatar
               sx={{
                 bgcolor: "white",
