@@ -15,7 +15,6 @@ import { Search } from "@mui/icons-material";
 import Image from "next/image";
 import InputField from "./inputField";
 
-
 const theme = createTheme({
   palette: {
     primary: {
