@@ -1,6 +1,6 @@
-import { Avatar, Box } from "@mui/material";
 import React from "react";
 import Image from "next/image";
+import { Avatar } from "@mui/material";
 
 function PenGlobe({ myTop, mySrc, myAlt }) {
   return (

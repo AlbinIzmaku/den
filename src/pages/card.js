@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function MyCard({ componentColor, avatarColor, borderColor }) {
+function MyCard({ componentColor, avatarColor, borderColor, name }) {
   return (
     <Card
       sx={{
@@ -40,8 +40,8 @@ function MyCard({ componentColor, avatarColor, borderColor }) {
             src="/avatar.png"
           ></Avatar>
         }
-        title="Albin Izmaku"
-        subheader="Astronaut"
+        title={name}
+        subheader="Front-End"
       />
       <CardContent>
         <Typography variant="body2" component="div">

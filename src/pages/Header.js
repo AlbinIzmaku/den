@@ -4,16 +4,12 @@ import {
   Box,
   Toolbar,
   Typography,
-  TextField,
-  IconButton,
   createTheme,
   ThemeProvider,
   Avatar,
-  SvgIcon,
 } from "@mui/material";
-import { Search } from "@mui/icons-material";
 import Image from "next/image";
-import InputField from "./inputField";
+import SearchBar from "./searchBar";
 
 const theme = createTheme({
   palette: {
@@ -47,25 +43,50 @@ function Header() {
               <MySvgIcon />
               <Typography variant="h5">Den</Typography>
             </Box>
-            <InputField />
-            <Avatar
+            <SearchBar />
+            <Box
               sx={{
-                bgcolor: "white",
-                width: 47,
-                height: 47,
-                overflow: "visible",
-                "& img": {
-                  width: 35,
-                  height: 35,
-                  borderRadius: "3px",
-                  outline: "1px solid #c3c2c2",
-                  outlineOffset: "2px",
-                  boxShadow:
-                    "2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff",
-                },
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+                width: "10%",
+                alignItems: "center",
               }}
-              src="/avatar.png"
-            ></Avatar>
+            >
+              <Avatar
+                sx={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: "0",
+                  transform: "rotate(45deg)",
+                  backgroundColor: "#fff",
+                  "& img": {
+                    width: 15,
+                    height: 15,
+                  },
+                }}
+                src="/message.svg"
+                alt="Message"
+              />
+              <Avatar
+                sx={{
+                  bgcolor: "white",
+                  width: 47,
+                  height: 47,
+                  overflow: "visible",
+                  "& img": {
+                    width: 35,
+                    height: 35,
+                    borderRadius: "3px",
+                    outline: "1px solid #c3c2c2",
+                    outlineOffset: "2px",
+                    boxShadow:
+                      "2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff",
+                  },
+                }}
+                src="/avatar.png"
+              />
+            </Box>
           </Toolbar>
         </AppBar>
       </Box>
