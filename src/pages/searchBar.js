@@ -128,15 +128,21 @@ function SearchBar() {
                     <Link
                       href={{
                         pathname: "user",
-                        query: { myName: element, profession: skill[index % skill.length] }
+                        query: {
+                          myName: element,
+                          profession: skill[index % skill.length],
+                        },
                       }}
                       underline="none"
                       onClick={(e) => {
                         e.preventDefault();
                         router.push({
                           pathname: "user",
-                          query: { myName: element, profession: skill[index % skill.length] }
-                        })
+                          query: {
+                            myName: element,
+                            profession: skill[index % skill.length],
+                          },
+                        });
                       }}
                     >
                       <ListItemText
