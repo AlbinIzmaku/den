@@ -6,7 +6,7 @@ function MyCircle() {
   const svgRef = useRef(null);
   const numLines = 12;
   const angleDiff = 30;
-  const circleRadii = [5, 20, 35, 50, 65, 80, 95, 110, 125, 140, 155];
+  const circleRadii = [5, 15, 25, 35, 45, 55, 65, 75, 85, 95, 105];
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
@@ -60,7 +60,7 @@ function MyCircle() {
   }, []);
 
   return (
-    <Box sx={{ width: "400px", height: "400px" }}>
+    <Box sx={{ width: "100%", aspectRatio: "1/1", backgroundColor: "white" }}>
       <svg ref={svgRef} width="100%" height="100%" />
     </Box>
   );

@@ -1,28 +1,39 @@
+import React, { useState, useEffect, useRef } from "react";
 import { Avatar, Box, Typography } from "@mui/material";
-import React from "react";
 import MyCircle from "./circle";
+import RectangleRating from "./myRectangle";
 
-function leftSection() {
+function LeftSection() {
+  const [avatarWidth, setAvatarWidth] = useState(0);
+  const avatarRef = useRef(null);
+
+  useEffect(() => {
+    if (avatarRef.current) {
+      const width = avatarRef.current.offsetWidth;
+      setAvatarWidth(width);
+    }
+  }, []);
+
   return (
     <Box
       sx={{
-        border: "1px solid black",
         display: "flex",
         flexDirection: "column",
-        alignItems: 'center'
+        alignItems: "center",
       }}
     >
       <Avatar
+        ref={avatarRef}
         sx={{
           bgcolor: "#ececec",
-          width: 47,
-          height: 47,
+          width: "66%",
+          height: avatarWidth ? `${avatarWidth}px` : "",
           overflow: "visible",
           border: "1px dashed #c3c2c2",
 
           "& img": {
-            width: 35,
-            height: 35,
+            width: "100%",
+            height: "100%",
             borderRadius: "3px",
             outline: "1px solid #c3c2c2",
             outlineOffset: "2px",
@@ -32,13 +43,44 @@ function leftSection() {
         }}
         src="/avatar.png"
       ></Avatar>
-      <Box sx={{display: 'flex'}}>
-        <Typography sx={{ border: "1px solid black", mr: '5px', boxShadow: '2px 2px black' }}>CTO</Typography>
-        <Typography sx={{ border: "1px solid black", mr: '5px', boxShadow: '2px 2px black' }}>Software Engineer</Typography>
+      <Box sx={{ display: "flex", margin: "10px 0" }}>
+        <Typography
+          sx={{
+            border: "1px solid black",
+            mr: "5px",
+            boxShadow: "2px 2px black",
+          }}
+        >
+          CTO
+        </Typography>
+        <Typography
+          sx={{
+            border: "1px solid black",
+            mr: "5px",
+            boxShadow: "2px 2px black",
+          }}
+        >
+          Software Engineer
+        </Typography>
       </Box>
       <MyCircle />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          marginTop: "10px"
+        }}
+      >
+        <Typography>Goals decided to commit</Typography>
+        <RectangleRating color="#8f5aa3" />
+        <Typography>Fahrids Suggestion On Goals</Typography>
+        <RectangleRating color="#fd535d" />
+        <Typography>Fahrids Suggestion On Goals</Typography>
+        <RectangleRating color="#ca9000" />
+      </Box>
     </Box>
   );
 }
 
-export default leftSection;
+export default LeftSection;

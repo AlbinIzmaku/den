@@ -11,10 +11,11 @@ function MyCard({ componentColor, avatarColor, borderColor, name }) {
   return (
     <Card
       sx={{
-        margin: "20px 100px",
         backgroundColor: componentColor,
         borderWidth: "1px",
         border: `1px solid ${borderColor}`,
+        width: "100%",
+        marginBottom: "10px",
       }}
     >
       <CardHeader
