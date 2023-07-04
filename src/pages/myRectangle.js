@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
@@ -34,7 +32,7 @@ const RectangleRating = ({color}) => {
         />
       </svg>
       <ArrowRightIcon className="arrow" onClick={handleIncrease} sx={{ position: 'absolute', right: "-8px" }} />
-      <Typography sx={{ position: 'absolute', left: "10px", color: "white"}}>4 of 5</Typography>
+      <Typography sx={{ position: 'absolute', left: "10px", color: "white"}}>{rating} of 5</Typography>
     </Box>
   );
 };

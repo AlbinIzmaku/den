@@ -25,15 +25,16 @@ function LeftSection() {
       <Avatar
         ref={avatarRef}
         sx={{
-          bgcolor: "#ececec",
+          mt: "10px",
+          bgcolor: "#f6f6f6",
           width: "66%",
           height: avatarWidth ? `${avatarWidth}px` : "",
           overflow: "visible",
           border: "1px dashed #c3c2c2",
 
           "& img": {
-            width: "100%",
-            height: "100%",
+            width: "78%",
+            height: "78%",
             borderRadius: "3px",
             outline: "1px solid #c3c2c2",
             outlineOffset: "2px",

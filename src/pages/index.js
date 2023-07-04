@@ -15,14 +15,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ backgroundColor: "#d9d9d9" }}>
-        <Grid container spacing={2}>
+        <Grid container>
           <Grid item xs={12}>
             <Header />
           </Grid>
-          <Grid item xs={3} sx={{backgroundColor: "#ececec"}}>
+          <Grid item xs={3} sx={{backgroundColor: "#ececec", margin: "0 15px"}}>
             <LeftSection />
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} sx={{ml: "5px"}}>
             <CardContainer />
           </Grid>
           <Grid item xs={1}>

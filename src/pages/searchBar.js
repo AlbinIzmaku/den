@@ -9,8 +9,8 @@ import {
   ListItemText,
   TextField,
   Link,
+  Typography,
 } from "@mui/material";
-// import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 
@@ -48,14 +48,12 @@ function SearchBar() {
 
   const handleChange = (event) => {
     const letter = event.target.value;
-    console.log("Letter", letter);
     setName(letter);
 
     const filteredNames = matchedNames.filter((matched) => {
       return matched.toLowerCase().includes(letter.toLowerCase());
     });
 
-    console.log("Filtered Names", filteredNames);
     setFilteredNames(filteredNames);
   };
 
@@ -99,10 +97,21 @@ function SearchBar() {
               marginTop: "5px",
             }}
           >
-            {filteredNames.map((element, index) => {
-              return (
-                <List key={element} sx={{ backgroundColor: "white" }}>
-                  <ListItem>
+            {filteredNames.length > 0 ? (
+              <List sx={{ backgroundColor: "white" }}>
+                {filteredNames.map((element, index) => (
+                  <ListItem
+                    key={element}
+                    onClick={() => {
+                      router.push({
+                        pathname: "user",
+                        query: {
+                          myName: element,
+                          profession: skill[index % skill.length],
+                        },
+                      });
+                    }}
+                  >
                     <ListItemAvatar>
                       <Avatar
                         sx={{
@@ -134,16 +143,6 @@ function SearchBar() {
                         },
                       }}
                       underline="none"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        router.push({
-                          pathname: "user",
-                          query: {
-                            myName: element,
-                            profession: skill[index % skill.length],
-                          },
-                        });
-                      }}
                     >
                       <ListItemText
                         primary={element}
@@ -154,9 +153,11 @@ function SearchBar() {
                       />
                     </Link>
                   </ListItem>
-                </List>
-              );
-            })}
+                ))}
+              </List>
+            ) : (
+              <Typography>No matching results</Typography>
+            )}
           </Box>
         )}
       </Box>

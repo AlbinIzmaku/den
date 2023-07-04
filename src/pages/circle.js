@@ -10,22 +10,24 @@ function MyCircle() {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-
-    // Render circles
+    const boxSize = 400; 
     svg
       .selectAll("circle")
       .data(circleRadii)
       .enter()
       .append("circle")
-      .attr("cx", 200)
-      .attr("cy", 200)
+      .attr("cx", boxSize / 2)
+      .attr("cy", boxSize / 2)
       .attr("r", (d) => d)
-      .attr("fill", (d, i) => (i === 0 ? "white" : "none")) // Set first circle to white
+      .attr("fill", (d, i) => (i === 0 ? "white" : "none"))
       .attr("stroke", "black")
       .attr("stroke-width", 0.1);
 
     // Render lines
-    const linesGroup = svg.append("g").attr("stroke", "black").attr("stroke-width", 0.1);
+    const linesGroup = svg
+      .append("g")
+      .attr("stroke", "black")
+      .attr("stroke-width", 0.1);
 
     const firstRadius = circleRadii[0];
     const lastRadius = circleRadii[circleRadii.length - 1];
@@ -34,10 +36,10 @@ function MyCircle() {
     for (let i = 0; i < numLines; i++) {
       const angle = (i * angleDiff * Math.PI) / 180;
 
-      const startX = 200 + Math.cos(angle) * firstRadius;
-      const startY = 200 + Math.sin(angle) * firstRadius;
-      const endX = 200 + Math.cos(angle) * lastRadius;
-      const endY = 200 + Math.sin(angle) * lastRadius;
+      const startX = boxSize / 2 + Math.cos(angle) * firstRadius;
+      const startY = boxSize / 2 + Math.sin(angle) * firstRadius;
+      const endX = boxSize / 2 + Math.cos(angle) * lastRadius;
+      const endY = boxSize / 2 + Math.sin(angle) * lastRadius;
 
       lines.push({
         startX,
@@ -56,11 +58,19 @@ function MyCircle() {
       .attr("y1", (d) => d.startY)
       .attr("x2", (d) => d.endX)
       .attr("y2", (d) => d.endY);
-
   }, []);
 
   return (
-    <Box sx={{ width: "100%", aspectRatio: "1/1", backgroundColor: "white" }}>
+    <Box
+      sx={{
+        width: "90%",
+        aspectRatio: "1/1",
+        backgroundColor: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <svg ref={svgRef} width="100%" height="100%" />
     </Box>
   );
