@@ -26,7 +26,7 @@ function LeftSection() {
         ref={avatarRef}
         sx={{
           mt: "10px",
-          bgcolor: "#f6f6f6",
+          bgcolor: "#ececec",
           width: "66%",
           height: avatarWidth ? `${avatarWidth}px` : "",
           overflow: "visible",
