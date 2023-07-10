@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Header from "./header";
-import CardContainer from "./cardContainer";
-import PenGlobeContainer from "./penGlobeContainer";
-import LeftSection from "./leftSection";
+import Header from "../components/Header";
+import CardContainer from "../components/cardContainer";
+import PenGlobeContainer from "../components/penGlobeContainer";
+import LeftSection from "../components/leftSection";
 import Grid from "@mui/material/Unstable_Grid2";
 
 export default function Home() {

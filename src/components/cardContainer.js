@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import MyCard from "./card";
-import UserContext from "./UserContext";
+import UserContext from "../store/UserContext";
 
 function CardContainer() {
   return (

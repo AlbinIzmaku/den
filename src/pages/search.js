@@ -8,13 +8,13 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import MyCard from "./card";
-import CardContainer from "./cardContainer";
-import MyAvatar from "./myAvatar";
-import UserContext from "./UserContext";
-import Header from "./header";
+import MyCard from "../components/card";
+import CardContainer from "../components/cardContainer";
+import MyAvatar from "../components/myAvatar";
+import UserContext from "../store/UserContext";
+import Header from "../components/Header";
 
-function User() {
+function Search() {
   const router = useRouter();
   const myName = router.query.myName || "";
   const profession = router.query.profession || "";
@@ -61,4 +61,4 @@ function User() {
   );
 }
 
-export default User;
+export default Search;
