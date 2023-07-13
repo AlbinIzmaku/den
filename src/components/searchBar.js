@@ -10,7 +10,6 @@ import {
   TextField,
   Link,
 } from "@mui/material";
-// import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 
@@ -48,15 +47,20 @@ function SearchBar() {
 
   const handleChange = (event) => {
     const letter = event.target.value;
-    console.log("Letter", letter);
     setName(letter);
 
     const filteredNames = matchedNames.filter((matched) => {
       return matched.toLowerCase().includes(letter.toLowerCase());
     });
 
-    console.log("Filtered Names", filteredNames);
     setFilteredNames(filteredNames);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      router.push("/results");
+    }
   };
 
   useEffect(() => {
@@ -90,6 +94,7 @@ function SearchBar() {
           onClick={handleClick}
           inputRef={textFieldRef}
           readOnly={!isTextFieldVisible}
+          onKeyPress={handleKeyPress}
         />
         {isTextFieldVisible && (
           <Box
@@ -127,7 +132,7 @@ function SearchBar() {
                     </ListItemAvatar>
                     <Link
                       href={{
-                        pathname: "user",
+                        pathname: "search",
                         query: {
                           myName: element,
                           profession: skill[index % skill.length],
@@ -137,7 +142,7 @@ function SearchBar() {
                       onClick={(e) => {
                         e.preventDefault();
                         router.push({
-                          pathname: "user",
+                          pathname: "search",
                           query: {
                             myName: element,
                             profession: skill[index % skill.length],
@@ -157,6 +162,33 @@ function SearchBar() {
                 </List>
               );
             })}
+            <Box
+              sx={{
+                backgroundColor: "white",
+                display: "flex",
+                justifyContent: "right",
+              }}
+            >
+              <Link
+                href={{
+                  pathname: "results",
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push({
+                    pathname: "results",
+                  });
+                }}
+                sx={{
+                  textDecoration: "none",
+                  color: "black",
+                  marginRight: "10px",
+                  marginBottom: "5px",
+                }}
+              >
+                See all results
+              </Link>
+            </Box>
           </Box>
         )}
       </Box>

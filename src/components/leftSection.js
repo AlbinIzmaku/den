@@ -20,6 +20,7 @@ function LeftSection() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        backgroundColor: "#ececec",
       }}
     >
       <Avatar
@@ -27,7 +28,7 @@ function LeftSection() {
         sx={{
           mt: "10px",
           bgcolor: "#ececec",
-          width: "66%",
+          width: "53%",
           height: avatarWidth ? `${avatarWidth}px` : "",
           overflow: "visible",
           border: "1px dashed #c3c2c2",
@@ -64,13 +65,15 @@ function LeftSection() {
           Software Engineer
         </Typography>
       </Box>
-      <MyCircle />
+      <Box sx={{ width: "100%" }}>
+        <MyCircle />
+      </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          marginTop: "10px"
+          marginTop: "10px",
         }}
       >
         <Typography>Goals decided to commit</Typography>

@@ -11,7 +11,7 @@ function PenGlobe({ myTop, mySrc, myAlt }) {
         backgroundColor: "#fff",
         position: "fixed",
         top: myTop,
-        right: "15px",
+        right: "2%",
       }}
     >
       <Image src={mySrc} alt={myAlt} width={20} height={20} />

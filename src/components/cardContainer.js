@@ -22,6 +22,22 @@ function CardContainer() {
           name="Shpetim Selaci"
         />
       </UserContext.Provider>
+      <UserContext.Provider value="Shpetim Selaci">
+        <MyCard
+          componentColor="#f4ccc9"
+          avatarColor="#fff"
+          borderColor="#cc9f9b"
+          name="Shpetim Selaci"
+        />
+      </UserContext.Provider>
+      <UserContext.Provider value="Albin Izmaku">
+        <MyCard
+          componentColor="#ececec"
+          avatarColor="#fff"
+          borderColor="#ccc"
+          name="Albin Izmaku"
+        />
+      </UserContext.Provider>
     </Box>
   );
 }

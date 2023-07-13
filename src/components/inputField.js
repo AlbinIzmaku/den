@@ -49,7 +49,10 @@ function InputField() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (inputFieldRef.current && !inputFieldRef.current.contains(event.target)) {
+      if (
+        inputFieldRef.current &&
+        !inputFieldRef.current.contains(event.target)
+      ) {
         setShowList(false);
       }
     };

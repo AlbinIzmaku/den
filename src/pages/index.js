@@ -2,7 +2,6 @@ import Head from "next/head";
 import Header from "../components/Header";
 import CardContainer from "../components/cardContainer";
 import PenGlobeContainer from "../components/penGlobeContainer";
-import LeftSection from "../components/leftSection";
 import Grid from "@mui/material/Unstable_Grid2";
 
 export default function Home() {
@@ -19,13 +18,10 @@ export default function Home() {
           <Grid item xs={12}>
             <Header />
           </Grid>
-          <Grid item xs={3} sx={{backgroundColor: "#ececec", margin: "0 15px"}}>
-            <LeftSection />
-          </Grid>
-          <Grid item xs={8} sx={{ml: "5px"}}>
+          <Grid item sx={{ width: "81.77%", margin: "2.5% 2% 2.5% 9.11%"}}>
             <CardContainer />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item>
             <PenGlobeContainer />
           </Grid>
         </Grid>

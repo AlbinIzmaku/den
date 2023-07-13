@@ -10,14 +10,17 @@ function MyCircle() {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    const boxSize = 400; 
+    const boxSize = 400;
+    const centerX = boxSize / 2; // Center X coordinate
+    const centerY = boxSize / 2; // Center Y coordinate
+
     svg
       .selectAll("circle")
       .data(circleRadii)
       .enter()
       .append("circle")
-      .attr("cx", boxSize / 2)
-      .attr("cy", boxSize / 2)
+      .attr("cx", centerX)
+      .attr("cy", centerY)
       .attr("r", (d) => d)
       .attr("fill", (d, i) => (i === 0 ? "white" : "none"))
       .attr("stroke", "black")
@@ -36,10 +39,10 @@ function MyCircle() {
     for (let i = 0; i < numLines; i++) {
       const angle = (i * angleDiff * Math.PI) / 180;
 
-      const startX = boxSize / 2 + Math.cos(angle) * firstRadius;
-      const startY = boxSize / 2 + Math.sin(angle) * firstRadius;
-      const endX = boxSize / 2 + Math.cos(angle) * lastRadius;
-      const endY = boxSize / 2 + Math.sin(angle) * lastRadius;
+      const startX = centerX + Math.cos(angle) * firstRadius;
+      const startY = centerY + Math.sin(angle) * firstRadius;
+      const endX = centerX + Math.cos(angle) * lastRadius;
+      const endY = centerY + Math.sin(angle) * lastRadius;
 
       lines.push({
         startX,
@@ -63,15 +66,28 @@ function MyCircle() {
   return (
     <Box
       sx={{
-        width: "90%",
+        width: "100%",
+        height: "250px",
         aspectRatio: "1/1",
         backgroundColor: "white",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        position: "relative", // Add this line
+        backgroundColor: "white"
       }}
     >
-      <svg ref={svgRef} width="100%" height="100%" />
+      <Box
+        sx={{
+          position: "absolute", // Add this line
+          top: "-30%", // Add this line
+          bottom: 0, // Add this line
+          left: "-7%", // Add this line
+          right: 0, // Add this line
+        }}
+      >
+        <svg ref={svgRef} width="100%" height="100%" />
+      </Box>
     </Box>
   );
 }

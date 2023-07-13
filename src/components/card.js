@@ -13,9 +13,9 @@ function MyCard({ componentColor, avatarColor, borderColor, name }) {
       sx={{
         backgroundColor: componentColor,
         borderWidth: "1px",
-        border: `1px solid ${borderColor}`,
         width: "100%",
-        marginBottom: "10px",
+        border: `1px solid ${borderColor}`,
+        marginBottom: "2.5%",
       }}
     >
       <CardHeader

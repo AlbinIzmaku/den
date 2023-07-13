@@ -4,8 +4,8 @@ import PenGlobe from "./penGlobe";
 function PenGlobeContainer() {
   return (
     <>
-      <PenGlobe myTop="12vh" mySrc="/globe.svg" myAlt="Globe" />
-      <PenGlobe myTop="23vh" mySrc="/message.svg" myAlt="Message" />
+      <PenGlobe myTop="14vh" mySrc="/globe.svg" myAlt="Globe" />
+      <PenGlobe myTop="25vh" mySrc="/message.svg" myAlt="Message" />
     </>
   );
 }
