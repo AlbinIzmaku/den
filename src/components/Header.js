@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import SearchBar from "./searchBar";
+import Link from "next/link";
 
 const theme = createTheme({
   palette: {
@@ -40,7 +41,10 @@ function Header() {
                 alignItems: "center",
               }}
             >
-              <MySvgIcon />
+              <Link href="/">
+                <MySvgIcon />
+              </Link>
+
               <Typography variant="h5">Den</Typography>
             </Box>
             <SearchBar />

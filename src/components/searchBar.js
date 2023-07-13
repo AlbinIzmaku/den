@@ -22,7 +22,7 @@ function SearchBar() {
     "Shpetim Selaci",
     "Seladin Izmaku",
   ]);
-  const [filteredNames, setFilteredNames] = useState(matchedNames);
+  const [filteredNames, setFilteredNames] = useState([]);
   const [isTextFieldVisible, setTextFieldVisible] = useState(false);
   const skill = ["Front-End", "Back-End", "Full-Stack", "Software Engineer"];
   const textFieldRef = useRef(null);
@@ -73,7 +73,7 @@ function SearchBar() {
     return () => {
       document.removeEventListener("click", handlePageClick);
     };
-  }, []);
+  }, [isTextFieldVisible]);
 
   return (
     <>
@@ -104,64 +104,61 @@ function SearchBar() {
               marginTop: "5px",
             }}
           >
-            {filteredNames.map((element, index) => {
-              return (
-                <List key={element} sx={{ backgroundColor: "white" }}>
-                  <ListItem>
-                    <ListItemAvatar>
-                      <Avatar
-                        sx={{
-                          bgcolor: "#fff",
-                          width: 47,
-                          height: 47,
-                          overflow: "visible",
-                          border: "1px dashed #c3c2c2",
-
-                          "& img": {
-                            width: 35,
-                            height: 35,
-                            borderRadius: "3px",
-                            outline: "1px solid #c3c2c2",
-                            outlineOffset: "2px",
-                            boxShadow:
-                              "2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff",
-                          },
-                        }}
-                        src="/avatar.png"
-                      />
-                    </ListItemAvatar>
-                    <Link
-                      href={{
+            <List sx={{ backgroundColor: "white" }}>
+              {filteredNames.map((element, index) => (
+                <ListItem key={element}>
+                  <ListItemAvatar>
+                    <Avatar
+                      sx={{
+                        bgcolor: "#fff",
+                        width: 47,
+                        height: 47,
+                        overflow: "visible",
+                        border: "1px dashed #c3c2c2",
+                        "& img": {
+                          width: 35,
+                          height: 35,
+                          borderRadius: "3px",
+                          outline: "1px solid #c3c2c2",
+                          outlineOffset: "2px",
+                          boxShadow:
+                            "2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff",
+                        },
+                      }}
+                      src="/avatar.png"
+                    />
+                  </ListItemAvatar>
+                  <Link
+                    href={{
+                      pathname: "search",
+                      query: {
+                        myName: element,
+                        profession: skill[index % skill.length],
+                      },
+                    }}
+                    underline="none"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push({
                         pathname: "search",
                         query: {
                           myName: element,
                           profession: skill[index % skill.length],
                         },
+                      });
+                    }}
+                  >
+                    <ListItemText
+                      primary={element}
+                      secondary={skill[index % skill.length]}
+                      sx={{
+                        color: "black",
                       }}
-                      underline="none"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        router.push({
-                          pathname: "search",
-                          query: {
-                            myName: element,
-                            profession: skill[index % skill.length],
-                          },
-                        });
-                      }}
-                    >
-                      <ListItemText
-                        primary={element}
-                        secondary={skill[index % skill.length]}
-                        sx={{
-                          color: "black",
-                        }}
-                      />
-                    </Link>
-                  </ListItem>
-                </List>
-              );
-            })}
+                    />
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
             <Box
               sx={{
                 backgroundColor: "white",
