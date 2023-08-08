@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Avatar, Box, Typography } from "@mui/material";
 import MyCircle from "./circle";
+import ProgressBar from "@/components/progressBar";
 import RectangleRating from "./myRectangle";
 
 function LeftSection() {
@@ -76,12 +77,19 @@ function LeftSection() {
           marginTop: "10px",
         }}
       >
-        <Typography>Goals decided to commit</Typography>
+        {/* <Typography>Goals decided to commit</Typography>
         <RectangleRating color="#8f5aa3" />
         <Typography>Fahrids Suggestion On Goals</Typography>
         <RectangleRating color="#fd535d" />
         <Typography>Fahrids Suggestion On Goals</Typography>
-        <RectangleRating color="#ca9000" />
+        <RectangleRating color="#ca9000" /> */}
+
+        <Typography>Goals decided to commit</Typography>
+        <ProgressBar color="#8f5aa3" />
+        <Typography>Fahrids Suggestion On Goals</Typography>
+        <ProgressBar color="#fd535d" />
+        <Typography>Fahrids Suggestion On Goals</Typography>
+        <ProgressBar color="#ca9000" />
       </Box>
     </Box>
   );

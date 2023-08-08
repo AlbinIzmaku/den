@@ -6,7 +6,7 @@ const ConcentricCircles = () => {
   const theme = useTheme();
   const classes = useStyles();
 
-  const centerX = 200; // Adjust the values as per your requirements
+  const centerX = 200; 
   const centerY = 200;
   const innerRadius = 100;
   const outerRadius = 150;

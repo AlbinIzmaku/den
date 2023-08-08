@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, LinearProgress } from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
-const RectangleRating = ({ color }) => {
+const ProgressBar = ({ color }) => {
   const [rating, setRating] = useState(0);
 
   const handleDecrease = () => {
@@ -27,26 +27,29 @@ const RectangleRating = ({ color }) => {
       width="100px"
       height="20px"
     >
+      <LinearProgress
+        variant="determinate"
+        value={(rating / 5) * 100}
+        sx={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "white",
+          "& .MuiLinearProgress-bar": {
+            backgroundColor: color, // Set the color of the progress bar
+          },
+        }}
+      />
       <ArrowLeftIcon
         className="arrow"
         onClick={handleDecrease}
         sx={{ position: "absolute", left: "-8px" }}
       />
-      <svg width={100} height={20}>
-        <rect
-          x={0}
-          y={0}
-          width="100%"
-          height={20}
-          fill={color}
-          style={{ clipPath: `inset(0% ${100 - (rating / 5) * 100}% 0% 0%)` }}
-        />
-      </svg>
       <ArrowRightIcon
         className="arrow"
         onClick={handleIncrease}
         sx={{ position: "absolute", right: "-8px" }}
       />
+
       <Typography sx={{ position: "absolute", left: "10px", color: "white" }}>
         {rating} of 5
       </Typography>
@@ -54,4 +57,4 @@ const RectangleRating = ({ color }) => {
   );
 };
 
-export default RectangleRating;
+export default ProgressBar;

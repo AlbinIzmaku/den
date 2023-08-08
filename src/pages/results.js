@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
+
 function Results() {
   return (
     <Box sx={{ padding: "0 3.5%" }}>
