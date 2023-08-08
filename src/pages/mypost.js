@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Editor, Transforms, Element, createEditor } from "slate";
+import { Editor, Transforms, createEditor } from "slate";
 import { Editable, Slate, withReact } from "slate-react";
 
 const CustomEditor = {
@@ -31,6 +31,34 @@ const CustomEditor = {
       { type: isActive ? null : "code" },
       { match: (n) => Editor.isBlock(editor, n) }
     );
+  },
+
+  isItalicMarkActive(editor) {
+    const marks = Editor.marks(editor);
+    return marks ? marks.italic === true : false;
+  },
+
+  toggleItalicMark(editor) {
+    const isActive = CustomEditor.isItalicMarkActive(editor);
+    if (isActive) {
+      Editor.removeMark(editor, "italic");
+    } else {
+      Editor.addMark(editor, "italic", true);
+    }
+  },
+
+  isUnderlineMarkActive(editor) {
+    const marks = Editor.marks(editor);
+    return marks ? marks.underline === true : false;
+  },
+
+  toggleUnderlineMark(editor) {
+    const isActive = CustomEditor.isUnderlineMarkActive(editor);
+    if (isActive) {
+      Editor.removeMark(editor, "underline");
+    } else {
+      Editor.addMark(editor, "underline", true);
+    }
   },
 };
 
@@ -76,6 +104,22 @@ const MyPost = () => {
         >
           Code Block
         </button>
+        <button
+          onMouseDown={(event) => {
+            event.preventDefault();
+            CustomEditor.toggleItalicMark(editor);
+          }}
+        >
+          Italic
+        </button>
+        <button
+          onMouseDown={(event) => {
+            event.preventDefault();
+            CustomEditor.toggleUnderlineMark(editor);
+          }}
+        >
+          Underline
+        </button>
       </div>
       <Editable
         renderElement={renderElement}
@@ -95,6 +139,18 @@ const MyPost = () => {
             case "b": {
               event.preventDefault();
               CustomEditor.toggleBoldMark(editor);
+              break;
+            }
+
+            case "i": {
+              event.preventDefault();
+              CustomEditor.toggleItalicMark(editor);
+              break;
+            }
+
+            case "u": {
+              event.preventDefault();
+              CustomEditor.toggleUnderlineMark(editor);
               break;
             }
           }
@@ -117,10 +173,16 @@ const DefaultElement = (props) => {
 };
 
 const Leaf = (props) => {
+  const { leaf } = props;
+
   return (
     <span
       {...props.attributes}
-      style={{ fontWeight: props.leaf.bold ? "bold" : "normal" }}
+      style={{
+        fontWeight: leaf.bold ? "bold" : "normal",
+        fontStyle: leaf.italic ? "italic" : "normal",
+        textDecoration: leaf.underline ? "underline" : "none",
+      }}
     >
       {props.children}
     </span>
