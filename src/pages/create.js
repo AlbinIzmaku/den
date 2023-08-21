@@ -1,6 +1,7 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography, createTheme } from "@mui/material";
 import React from "react";
 import RichTextExample from "./post";
+import MyButton from "@/components/myButton";
 
 const Create = () => {
   return (
@@ -10,20 +11,38 @@ const Create = () => {
       alignItems="center"
       justifyContent="center"
       minHeight="100vh"
+      sx={{ backgroundColor: "#ba92ee" }}
     >
       <Box
         style={{
-          border: "1px solid black",
           width: "78%",
-          border: "1px solid black",
           padding: "20px",
-          backgroundColor: "#9747ff"
+          backgroundColor: "#9747ff",
         }}
       >
-        <Typography variant="h5">Create something great.</Typography>
-        <TextField label="Post something here..." sx={{width: "100%", color: "black", backgroundColor: "#e6e6e6"}} />
+        <Typography
+          variant="h4"
+          sx={{ color: "white", padding: "10px 0 30px 0" }}
+        >
+          Create something great.
+        </Typography>
+        <TextField
+          color="secondary"
+          label={
+            <Typography variant="body" sx={{ color: "black" }}>
+              Post title here...
+            </Typography>
+          }
+          sx={{
+            width: "100%",
+            color: "black",
+            backgroundColor: "#e6e6e6",
+            borderColor: "black",
+            marginBottom: "20px",
+          }}
+        />
         <RichTextExample />
-        <Button type="submit">Submit</Button>
+        <MyButton />
       </Box>
     </Box>
   );

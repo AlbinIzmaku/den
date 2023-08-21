@@ -30,7 +30,14 @@ const RichTextExample = () => {
   return (
     <Box style={{ backgroundColor: "#e6e6e6" }}>
       <Slate editor={editor} initialValue={initialValue}>
-        <Toolbar style={{width: "90%",  backgroundColor: "white", overflow: "hidden", marginLeft: "1px" }}>
+        <Toolbar
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            overflow: "hidden",
+            marginLeft: "1px",
+          }}
+        >
           <MarkButton format="bold" icon="format_bold" />
           <MarkButton format="italic" icon="format_italic" />
           <MarkButton format="underline" icon="format_underlined" />
@@ -48,10 +55,14 @@ const RichTextExample = () => {
         <Editable
           renderElement={renderElement}
           renderLeaf={renderLeaf}
-          placeholder="Enter some rich text…"
           spellCheck
           autoFocus
-          style={{ paddingLeft: "20px", height: "200px", outline: "none", backgroundColor: "#9747ff" }}
+          style={{
+            paddingLeft: "20px",
+            height: "200px",
+            outline: "none",
+            backgroundColor: "#e6e6e6",
+          }}
           onKeyDown={(event) => {
             for (const hotkey in HOTKEYS) {
               if (isHotkey(hotkey, event)) {
